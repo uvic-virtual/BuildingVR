@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 323035717}
   - component: {fileID: 323035716}
   - component: {fileID: 323035715}
-  - component: {fileID: 323035714}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -155,18 +154,6 @@ Transform:
   m_Father: {fileID: 1505713909}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &323035714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323035712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ea28aba28f24c40b65b008a1bc9bd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &323035715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6e24d343b854ea3907326eef5be383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 5474369160560316728, guid: 4508c6967866241dd9ae6ede42e29ccb, type: 3}
+  blockPrefab: {fileID: 5474369160560316728, guid: 4508c6967866241dd9ae6ede42e29ccb,
+    type: 3}
+  highlighterPrefab: {fileID: 6470651541733333343, guid: 79623de2d1d864b3eada2a29ea0c1cf5,
+    type: 3}
 --- !u!65 &323035716
 BoxCollider:
   m_ObjectHideFlags: 0
