@@ -28,9 +28,10 @@ public class PlaceBlock : MonoBehaviour
     {
         var block = other.gameObject;
         var normal = GetNormalVector(block);
+        float blockSize = block.transform.lossyScale.x;
 
         Destroy(highlighterBlock);
-        highlighterBlock = Instantiate(highlighterPrefab, other.transform.position + normal, Quaternion.identity);
+        highlighterBlock = Instantiate(highlighterPrefab, other.transform.position + normal*blockSize, Quaternion.identity);
     }
 
     private void OnTriggerExit()
