@@ -16,7 +16,6 @@ public class PlaceBlock : MonoBehaviour
             if (highlighterBlock != null)
             {
                 Instantiate(blockPrefab, highlighterBlock.transform.position, Quaternion.identity);
-                Destroy(highlighterBlock);
             }
             else
             {
