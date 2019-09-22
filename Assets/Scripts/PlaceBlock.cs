@@ -11,16 +11,16 @@ public class PlaceBlock : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        //Right click to place highlighted block (if it exsists).
+        if (Input.GetMouseButtonDown(1) && highlighterBlock != null)
         {
-            if (highlighterBlock != null)
-            {
-                Instantiate(blockPrefab, highlighterBlock.transform.position, Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(blockPrefab, transform.position, Quaternion.identity);
-            }
+            Instantiate(blockPrefab, highlighterBlock.transform.position, Quaternion.identity);
+        }
+
+        //Left click to place block on hand.
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(blockPrefab, transform.position, Quaternion.identity);
         }
     }
 
