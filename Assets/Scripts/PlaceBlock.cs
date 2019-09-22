@@ -50,15 +50,36 @@ public class PlaceBlock : MonoBehaviour
         float zComponent = pathToBlock.z * pathToBlock.z;
 
         //Checks which component is greatest, and returns a new vector3 of ONLY that component of pathToBlock.
+
+        //is X the biggest?
         if (xComponent > yComponent && xComponent > zComponent)
         {
-            return new Vector3(pathToBlock.x, 0, 0);
+            //is the path left or right?
+            if (pathToBlock.x > 0)
+            {
+                return Vector3.right;
+            }
+            return Vector3.left;
         }
+
+        //is Y the biggest?
         if (yComponent > xComponent && yComponent > zComponent)
         {
-            return new Vector3(0, pathToBlock.y, 0);
+            //is the path up or down?
+            if (pathToBlock.y > 0)
+            {
+                return Vector3.up;
+            }
+            return Vector3.down;
         }
-        return new Vector3 (0, 0, pathToBlock.z);
+
+        //Z must be biggest.
+        //is the path forwards or backwards?
+        if (pathToBlock.z > 0)
+        {
+            return Vector3.forward;
+        }
+        return Vector3.back;
     }
 }
 
