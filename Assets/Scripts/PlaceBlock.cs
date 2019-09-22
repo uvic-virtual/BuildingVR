@@ -39,6 +39,11 @@ public class PlaceBlock : MonoBehaviour
         Destroy(highlighterBlock);
     }
 
+   /// <summary>
+   /// Finds the "cardinal direction" (up down right left forwards backwards) between this gameobject and another.
+   /// </summary>
+   /// <param name="other">Other Gameobject we want to find "cardinal direction" to.</param>
+   /// <returns>Returns a Vector3 with magnitude 1, and only 1 non-zero component.</returns>
     private Vector3 GetNormalVector(GameObject other)
     {
         //vector3 of path from hand's position to other gameobject's position
