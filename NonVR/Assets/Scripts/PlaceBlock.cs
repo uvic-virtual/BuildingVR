@@ -26,12 +26,15 @@ public class PlaceBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var block = other.gameObject;
-        var normal = GetNormalVector(block);
-        float blockSize = block.transform.lossyScale.x;
+        if (other.tag.Equals(blockPrefab.tag))
+        {
+            var block = other.gameObject;
+            var normal = GetNormalVector(block);
+            float blockSize = block.transform.lossyScale.x;
 
-        Destroy(highlighterBlock);
-        highlighterBlock = Instantiate(highlighterPrefab, other.transform.position + normal*blockSize, Quaternion.identity);
+            Destroy(highlighterBlock);
+            highlighterBlock = Instantiate(highlighterPrefab, other.transform.position + normal * blockSize, Quaternion.identity);
+        }
     }
 
     private void OnTriggerExit()
