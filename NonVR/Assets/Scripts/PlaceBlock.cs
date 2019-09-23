@@ -1,45 +1,61 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Put on player's hand, places block on right click.</summary>
 public class PlaceBlock : MonoBehaviour
 {
-    [SerializeField] private GameObject blockPrefab;
-    [SerializeField] private GameObject highlighterPrefab;
+    /// <summary>
+    /// Prefab that gets placed.</summary>
+    [SerializeField] private GameObject BlockPrefab;
 
-    private GameObject highlighterBlock;
+    /// <summary>
+    /// Prefab used to "highlight" where a block will go if you click.</summary>
+    [SerializeField] private GameObject HighlighterPrefab;
+
+    /// <summary>
+    /// Instance of highlighter prefab.</summary>
+    private GameObject highlighter;
 
     void Update()
     {
-        //Right click to place highlighted block (if it exsists).
-        if (Input.GetMouseButtonDown(1) && highlighterBlock != null)
+        //Right click to place block on highlighter block (if it exsists).
+        if (Input.GetMouseButtonDown(1) && highlighter != null)
         {
-            Instantiate(blockPrefab, highlighterBlock.transform.position, Quaternion.identity);
+            Instantiate(BlockPrefab, highlighter.transform.position, Quaternion.identity);
         }
 
         //Left click to place block on hand.
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(blockPrefab, transform.position, Quaternion.identity);
+            Instantiate(BlockPrefab, transform.position, Quaternion.identity);
         }
     }
 
+    /// <summary>
+    /// Creates highlighter block immediately adjacent to block touched by cursor.</summary>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals(blockPrefab.tag))
+        //Does the other gameobject have a block tag?
+        if (other.tag.Equals(BlockPrefab.tag))
         {
+            //Other block cursor is touching
             var block = other.gameObject;
+
+            //Normal vector pointing out from surface being touched.
             var normal = GetNormalVector(block);
+
+            //Size of the cursor block, prevents clipping.
             float blockSize = block.transform.lossyScale.x;
 
-            Destroy(highlighterBlock);
-            highlighterBlock = Instantiate(highlighterPrefab, other.transform.position + normal * blockSize, Quaternion.identity);
+            //Clean up old highlighter.
+            Destroy(highlighter);
+
+            //Create a new highlighter next to block in direction of normal vector.
+            highlighter = Instantiate(HighlighterPrefab, other.transform.position + normal * blockSize, Quaternion.identity);
         }
     }
 
     private void OnTriggerExit()
     {
-        Destroy(highlighterBlock);
+        Destroy(highlighter);
     }
 
    /// <summary>
@@ -90,4 +106,3 @@ public class PlaceBlock : MonoBehaviour
         return Vector3.back;
     }
 }
-
