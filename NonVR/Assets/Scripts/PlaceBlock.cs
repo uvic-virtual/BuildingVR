@@ -3,6 +3,10 @@
 public class PlaceBlock : MonoBehaviour
 {
     /// <summary>
+    /// Controls scroll rate of mouse. </summary>
+    [SerializeField] private float MouseScale = 0.1f;
+
+    /// <summary>
     /// Prefab that gets placed.</summary>
     [SerializeField] private GameObject BlockPrefab;
 
@@ -27,6 +31,8 @@ public class PlaceBlock : MonoBehaviour
         {
             Instantiate(BlockPrefab, transform.position, Quaternion.identity);
         }
+
+        transform.localPosition += new Vector3(0f, 0f, Input.mouseScrollDelta.y * MouseScale);
     }
 
     /// <summary>
