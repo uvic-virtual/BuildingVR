@@ -107,7 +107,7 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 23800000, guid: b12800c6c885e784a9b7268c87d06488, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &13146242
 GameObject:
   m_ObjectHideFlags: 0
@@ -4746,7 +4746,7 @@ Terrain:
   m_GameObject: {fileID: 1905925190}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: 84119be17a19472479cf7a5da10345e5, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
