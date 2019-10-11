@@ -95,7 +95,7 @@ public class AttackPlayer : MonoBehaviour
   
         while (playerHealth.Health > 0)
         {
-            playerHealth.Hit(damagePerDelay);
+            playerHealth.Health -= damagePerDelay;
             Debug.Log(playerHealth.Health);
             yield return new WaitForSeconds(timeDelay);
         }

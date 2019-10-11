@@ -19,7 +19,7 @@ public class HealthManager : MonoBehaviour, IDamageable, IHealable
     {
         get { return _health; }
 
-        private set
+        set
         {
             _health = value;
 
@@ -54,24 +54,6 @@ public class HealthManager : MonoBehaviour, IDamageable, IHealable
     {
         healthBar = GetComponentInChildren<Image>();
         Health = MaxHealth;
-    }
-
-    /// <summary>
-    /// Removes the specified amount of health.
-    /// </summary>
-    /// <param name="damgeAmount">Amount of health to remove.</param>
-    public void Hit(int damgeAmount)
-    {
-        Health -= damgeAmount;
-    }
-
-    /// <summary>
-    /// Adds the specified amount of health.
-    /// </summary>
-    /// <param name="healAmount">Amount of health to add.</param>
-    public void AddHealth(int healAmount)
-    {
-        Health += healAmount;
     }
 
     /// <summary>
