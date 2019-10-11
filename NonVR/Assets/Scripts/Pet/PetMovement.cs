@@ -13,9 +13,9 @@ public class PetMovement : MonoBehaviour
     {
         if (Player == null)
         {
-            Player = GameObject.FindGameObjectWithTag("Player");
-            followTarget = GetComponent<FollowTarget>();
+            Player = GameObject.FindGameObjectWithTag("Player"); 
         }
+        followTarget = GetComponent<FollowTarget>();
         followTarget.Target = Player;
     }
 
