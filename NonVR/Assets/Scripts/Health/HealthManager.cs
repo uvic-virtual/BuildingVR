@@ -25,19 +25,14 @@ public class HealthManager : MonoBehaviour, IDamageable
 
         set
         {
-            _health = value;
-
-            //sets filled amount to % of health remaining.
+            _health = Mathf.Clamp(value, 0, MaxHealth);
+            
             if (HealthBar != null)
             {
                 HealthBar.fillAmount = (float)_health / MaxHealth;
             }
-            
-            if (_health > MaxHealth)
-            {
-                _health = MaxHealth;
-            }
-            else if (_health <= 0)
+
+            if (_health == 0)
             {
                 Death?.Invoke();
             }
