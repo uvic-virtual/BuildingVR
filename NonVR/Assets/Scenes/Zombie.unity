@@ -178,6 +178,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &150206220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 150206222}
+  - component: {fileID: 150206221}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &150206221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150206220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aece5805ad3744ec88212432af206ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Message: Game Over!
+--- !u!4 &150206222
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150206220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.413808, y: 0.97, z: 15.265943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204338642
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +664,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1688822320}
   - component: {fileID: 1688822321}
-  - component: {fileID: 1688822322}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -659,8 +699,8 @@ MonoBehaviour:
   Death:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1688822322}
-        m_MethodName: PublicPrint
+      - m_Target: {fileID: 150206221}
+        m_MethodName: PrintGameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -672,14 +712,3 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1688822322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1688822319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cc0c0fdd204f4be19a1c0f60fe0b5f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
