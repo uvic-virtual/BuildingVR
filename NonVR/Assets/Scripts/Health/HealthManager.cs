@@ -9,11 +9,11 @@ public class HealthManager : MonoBehaviour, IDamageable
     [SerializeField] private int MaxHealth = 100; //pretend this is a constant.
 
     //Death event (stuff you want to happen when this zombie dies).
-    [SerializeField] public UnityEvent Death;
+    [SerializeField] private UnityEvent Death;
 
     /// <summary>
     /// Health bar graphic that fills/shrinks depending on health.</summary>
-    private Image healthBar;
+    [SerializeField] private Image HealthBar;
 
     private int _health;
     /// <summary>
@@ -28,9 +28,9 @@ public class HealthManager : MonoBehaviour, IDamageable
             _health = value;
 
             //sets filled amount to % of health remaining.
-            if (healthBar != null)
+            if (HealthBar != null)
             {
-                healthBar.fillAmount = (float)_health / MaxHealth;
+                HealthBar.fillAmount = (float)_health / MaxHealth;
             }
             
             if (_health > MaxHealth)
@@ -48,7 +48,10 @@ public class HealthManager : MonoBehaviour, IDamageable
     /// Sets health to maxhealth.</summary>
     private void Start()
     {
-        healthBar = GetComponentInChildren<Image>();
+        if (HealthBar == null)
+        {
+            HealthBar = GetComponentInChildren<Image>();
+        }
         Health = MaxHealth;
     }
 }
