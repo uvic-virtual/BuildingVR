@@ -32,7 +32,6 @@ public class StealRelic : MonoBehaviour
             temple = GameObject.FindGameObjectWithTag("Temple");
         }
         
-        health = GetComponent<HealthManager>();
         movement = GetComponent<FollowTarget>();
 
         //Set target to relic.
