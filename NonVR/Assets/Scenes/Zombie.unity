@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea72b423d1f304171b19b874391ce25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRadius: 1
+  AttackRadius: 2
   AttackTimeDelay: 0.5
   DamagePerDelay: 1
 --- !u!114 &1100765186
