@@ -49,7 +49,6 @@ public class StealRelic : MonoBehaviour
 
       
         //Add delegates to events.
-        health.Death += DropObject;
         RelicPickedUp += GotoTemple;
         RelicDropped += GotoRelic;
 
@@ -61,7 +60,6 @@ public class StealRelic : MonoBehaviour
     /// Cleans up events when zombie is destroyed. </summary>
     private void OnDestroy()
     {
-        health.Death -= DropObject;
         RelicPickedUp -= GotoTemple;
         RelicDropped -= GotoRelic;
     }
