@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour, IDamageable
     [SerializeField] private int MaxHealth = 100; //pretend this is a constant.
 
     //Death event (stuff you want to happen when this zombie dies).
-    [SerializeField] private UnityEvent Death;
+    [SerializeField] public UnityEvent Death;
 
     /// <summary>
     /// Health bar graphic that fills/shrinks depending on health.</summary>
