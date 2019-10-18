@@ -60,27 +60,27 @@ public class AttackPlayer : MonoBehaviour
          *      Start Moving 
          *      Stop Damaging 
          */
-        //bool closeToPlayer = Vector3.Distance(transform.position, player.transform.position) < AttackRadius;
-        //if (closeToPlayer)
-        //{
-        //    movement.FaceTarget();
-        //    movement.CurrentlyMoving = false;
+        bool closeToPlayer = Vector3.Distance(transform.position, player.transform.position) < AttackRadius;
+        if (closeToPlayer)
+        {
+            movement.FaceTarget();
+            movement.CurrentlyMoving = false;
 
-        //    if (!damageRoutineRunning)
-        //    {
-        //        damageRoutine = StartCoroutine(DamagePlayer(DamagePerDelay, AttackTimeDelay));
-        //    }
-        //}
-        //else //if not close to player:
-        //{
-        //    movement.CurrentlyMoving = true;
+            if (!damageRoutineRunning)
+            {
+                damageRoutine = StartCoroutine(DamagePlayer(DamagePerDelay, AttackTimeDelay));
+            }
+        }
+        else //if not close to player:
+        {
+            movement.CurrentlyMoving = true;
 
-        //    if (damageRoutineRunning)
-        //    {
-        //        StopCoroutine(damageRoutine);
-        //        damageRoutineRunning = false;
-        //    }
-        //}
+            if (damageRoutineRunning)
+            {
+                StopCoroutine(damageRoutine);
+                damageRoutineRunning = false;
+            }
+        }
     }
 
     /// <summary>
