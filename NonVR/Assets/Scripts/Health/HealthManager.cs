@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
 /// Used as a Health component on various gameobjects.</summary>
 public class HealthManager : MonoBehaviour, IDamageable, IHealable
 {
     [SerializeField] private int MaxHealth = 100; //pretend this is a constant.
+
+    //Death event (stuff you want to happen when this zombie dies).
+    [SerializeField] public UnityEvent Death;
 
     /// <summary>
     /// Health bar graphic that fills/shrinks depending on health.</summary>
@@ -35,18 +39,10 @@ public class HealthManager : MonoBehaviour, IDamageable, IHealable
             }
             else if (_health <= 0)
             {
-                Kill();
+                Death?.Invoke();
             }
         }
     }
-
-    /// <summary>
-    /// Delegate for Death event.</summary>
-    public delegate void OnDeath();
-
-    /// <summary>
-    /// Raised when health reaches zero.</summary>
-    public event OnDeath Death;
 
     /// <summary>
     /// Sets health to maxhealth.</summary>
@@ -56,10 +52,10 @@ public class HealthManager : MonoBehaviour, IDamageable, IHealable
         Health = MaxHealth;
     }
 
-    /// <summary>
-    /// Calls Death() event.</summary>
+
+    //Set health to zero to invoke death event.
     public void Kill()
     {
-        Death?.Invoke();
+        Health = 0;
     }
 }
