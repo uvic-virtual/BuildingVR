@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// Used as a Health component on various gameobjects.</summary>
-public class HealthManager : MonoBehaviour, IDamageable, IHealable
+public class HealthManager : MonoBehaviour, IDamageable
 {
     [SerializeField] private int MaxHealth = 100; //pretend this is a constant.
 
