@@ -9,24 +9,12 @@ public class StealRelic : MonoBehaviour
     [SerializeField] private float RelicHeightDisplacement = 1.8f;
 
     /// <summary>
-    /// Delegate for relic events.</summary>
-    private delegate void RelicDelegate ();
-
-    /// <summary>
-    /// Static event, called when thing happens.  Used to change targets other zombies are following. </summary>
-    private static event RelicDelegate RelicPickedUp, RelicDropped;
-
-    /// <summary>
     /// Potential destination of zombie.</summary>
     private static GameObject relic, temple;
 
     /// <summary>
     /// gameobject currently being carried by zombie. </summary>
     private GameObject carriedObject;
-
-    /// <summary>
-    /// Health component of zombie. DropObject added to it's death event to prevent relic dissappearing when a zombie is killed.</summary>
-    private HealthManager health;
 
     /// <summary>
     /// FollowTarget component of this zombie.</summary>
@@ -47,21 +35,8 @@ public class StealRelic : MonoBehaviour
         health = GetComponent<HealthManager>();
         movement = GetComponent<FollowTarget>();
 
-      
-        //Add delegates to events.
-        RelicPickedUp += GotoTemple;
-        RelicDropped += GotoRelic;
-
         //Set target to relic.
         movement.Target = relic;
-    }
-
-    /// <summary>
-    /// Cleans up events when zombie is destroyed. </summary>
-    private void OnDestroy()
-    {
-        RelicPickedUp -= GotoTemple;
-        RelicDropped -= GotoRelic;
     }
 
     /// <summary>
@@ -77,7 +52,7 @@ public class StealRelic : MonoBehaviour
             carriedObject.transform.parent = null;
             carriedObject = null;
 
-            RelicDropped();
+            //RelicDropped();
         }
     }
 
@@ -106,23 +81,6 @@ public class StealRelic : MonoBehaviour
         Rigidbody rigidbody = carriedObject.GetComponentInChildren<Rigidbody>();
         rigidbody.isKinematic = true;
 
-        RelicPickedUp();
-    }
-
-    //TODO: Make Goto(temple/relic) one method, figure out how event thing with parameters work.
-    
-    /// <summary>
-    /// Changes target to temple.</summary>
-    private void GotoTemple()
-    {
-        movement.Target = temple;
-    }
-
-    /// <summary>
-    /// Changes target to relic.
-    /// Called in RelicDropped when a relic is dropped.</summary>
-    private void GotoRelic()
-    {
-        movement.Target = relic;
+        //RelicPickedUp();
     }
 }
