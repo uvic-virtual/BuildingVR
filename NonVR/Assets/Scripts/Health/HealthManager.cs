@@ -51,11 +51,4 @@ public class HealthManager : MonoBehaviour, IDamageable, IHealable
         healthBar = GetComponentInChildren<Image>();
         Health = MaxHealth;
     }
-
-
-    //Set health to zero to invoke death event.
-    public void Kill()
-    {
-        Health = 0;
-    }
 }
