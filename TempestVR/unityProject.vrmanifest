@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.demo.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "F:\\Unity\\Build\\V4.0.1\\actions.json",
+      "action_manifest_path": "D:\\Virtual_Club\\Public Release\\BuildingVR\\TempestVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "Demo [Testing]"
