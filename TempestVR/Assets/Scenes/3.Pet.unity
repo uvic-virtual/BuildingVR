@@ -112,7 +112,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: b12800c6c885e784a9b7268c87d06488, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 873a207c12fc01148a283451ad5eada5, type: 2}
 --- !u!1 &69292351
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &159030364
 GameObject:
@@ -1042,6 +1042,7 @@ GameObject:
   - component: {fileID: 506177452}
   - component: {fileID: 506177451}
   - component: {fileID: 506177453}
+  - component: {fileID: 506177450}
   m_Layer: 0
   m_Name: Pet
   m_TagString: Untagged
@@ -1049,6 +1050,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &506177450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506177449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a843883d3fe724fac0adc82f3455d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &506177451
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1092,12 +1104,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 506177449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a9dee94b037d6c46a67e811a774147f, type: 3}
+  m_Script: {fileID: 11500000, guid: e75228bba2f4b384da90fd0d7a757aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: 50
-  Look_Offset: 20
-  Distance_Offset: 0.7
+  Player: {fileID: 0}
+  FollowDistance: 4
 --- !u!1 &529015595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,6 +3130,7 @@ GameObject:
   - component: {fileID: 1330520830}
   - component: {fileID: 1330520829}
   - component: {fileID: 1330520828}
+  - component: {fileID: 1330520820}
   m_Layer: 0
   m_Name: Pet Body
   m_TagString: Untagged
@@ -3126,6 +3138,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1330520820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330520819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d97fc6861ca8924780aac73f741e2a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpForce: 250
 --- !u!54 &1330520828
 Rigidbody:
   m_ObjectHideFlags: 0
